@@ -58,6 +58,11 @@ class App extends Component {
             }
           </ol>
         </div>
+        <div>
+          <div>二、三、四，楼打扫卫生需要扫至下层楼梯</div>
+          <div>一楼需要打扫院子</div>
+          <div>组长负责任务分配，以及讲卫生标准</div>
+        </div>
       </div>
     )
   }
