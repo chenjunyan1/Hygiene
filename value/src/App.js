@@ -28,7 +28,7 @@ class App extends Component {
   // 点击后
   handleSubmit(event) {
     event.preventDefault();
-    if (deta.indexOf(this.state.value)) {
+    if (deta.indexOf(this.state.value) != -1) {
       console.log("在本页面开始寻找ID:" + this.state.value)
       let anchorElement = document.getElementById(this.state.value);
       if (anchorElement) {
@@ -42,7 +42,7 @@ class App extends Component {
         value: ""
       })
     } else {
-      alert("格式错误或不存在")
+      alert("输入日期格式错误或不是本周二时间 " + "\n" + "输入格式：九月十四日 9-14")
     }
 
 
@@ -131,8 +131,8 @@ class App extends Component {
         <br /><br /><br /><br /><br /><br />
         <div>
           <form className="jilu" onSubmit={this.handleSubmit}>
-            <div>
-              <input className="shuru" value={this.state.value} onChange={this.handleChange} placeholder="格式：九月十四日 9-14" />
+            <div className="Input_chazhao">
+              <input className="shuru" value={this.state.value} onChange={this.handleChange} placeholder="输入格式：九月十四日 9-14" />
               <input className="tijiao" type="submit" value="查找" />
             </div>
           </form>
@@ -141,7 +141,7 @@ class App extends Component {
           {
             Object.keys(Rotation()).map((value, index) => {
               return (
-                <div key={index} id={deta[index]}>
+                <div key={index} className="lun" id={deta[index]}>
                   <div>
                     {"第" + (index + 1) + "周 ： Date : " + deta[index]}
                   </div>
