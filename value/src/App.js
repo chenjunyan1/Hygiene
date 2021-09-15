@@ -4,8 +4,29 @@ import date from './date.json'
 import './App.css'
 
 
+
 //值日日期 
 let deta = ["9-14", "9-21", "9-28", "10-5", "10-12", "10-19", "10-26", "11-2", "11-9", "11-16", "11-23", "11-30", "12-7", "12-14", "12-21", "12-28", "1-4", "1-11", "1-18", "1-25", "2-1", "2-8", "2-15", "2-22"]
+// 加工时间
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+// 获取时间
+function time() {
+  var today = new Date();
+  var y = today.getFullYear();
+  var a = today.getMonth() + 1;
+  var b = today.getDate();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  return "今日日期" + y + "/" + a + "/" + b;
+}
 
 class App extends Component {
 
@@ -42,7 +63,7 @@ class App extends Component {
         value: ""
       })
     } else {
-      alert("输入日期格式错误或不是本周二时间 " + "\n" + "输入格式：九月十四日 9-14")
+      alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14")
     }
 
 
@@ -130,9 +151,12 @@ class App extends Component {
         </div>
         <br /><br /><br /><br /><br /><br />
         <div>
+          <div>
+            {time()}
+          </div>
           <form className="jilu" onSubmit={this.handleSubmit}>
             <div className="Input_chazhao">
-              <input className="shuru" value={this.state.value} onChange={this.handleChange} placeholder="输入格式：九月十四日 9-14" />
+              <input className="shuru" value={this.state.value} onChange={this.handleChange} placeholder="九月十四日 输入格式： 9-14" />
               <input className="tijiao" type="submit" value="查找" />
             </div>
           </form>

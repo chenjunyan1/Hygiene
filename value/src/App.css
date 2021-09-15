@@ -40,12 +40,12 @@ ol>li:nth-child(4){
   width: 100%;
 }
 .Input_chazhao>input:first-child{
-  height: 30px;
+  height: 60px;
   text-align: center;
   width: 80%;
 }
 .Input_chazhao>input:nth-child(2){
-  height: 36px;
+  height: 66px;
   width: 20%;
 }
 .lun{
