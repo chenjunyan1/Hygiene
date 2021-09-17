@@ -21,6 +21,8 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
+
+  
   // 监听value
   handleChange(event) {
     this.setState({ value: event.target.value });
@@ -121,6 +123,8 @@ class App extends Component {
       }
       return roundArr;
     }
+
+    
     return (
       <div>
 
@@ -174,13 +178,13 @@ class App extends Component {
           <ul>
             Help
             <li>
-              <a href="mailto:2562178620@qq.com">有什么建议可通过邮箱发送：2562178620@qq.com</a>
+              <a href="mailto:2562178620@qq.com">如有建议可通过发送邮箱至：2562178620@qq.com</a>
             </li>
             <li>
-              <a href="https://calendar-lac.vercel.app">日历：tade</a>
+              <a href="https://calendar-lac.vercel.app">日历：Dade</a>
             </li>
             <li>
-              <a href="https://github.com/chenjunyan1/name">github开源本页项目一切文件： https://github.com/chenjunyan1/name</a>
+              <a href="https://github.com/chenjunyan1/name">Github开源本页项目一切文件： https://github.com/chenjunyan1/name</a>
             </li>
             <li>
               {this.state.time}
