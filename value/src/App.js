@@ -7,26 +7,7 @@ import './App.css'
 
 //值日日期 
 let deta = ["9-14", "9-21", "9-28", "10-5", "10-12", "10-19", "10-26", "11-2", "11-9", "11-16", "11-23", "11-30", "12-7", "12-14", "12-21", "12-28", "1-4", "1-11", "1-18", "1-25", "2-1", "2-8", "2-15", "2-22"]
-// 加工时间
-function checkTime(i) {
-  if (i < 10) {
-    i = "0" + i;
-  }
-  return i;
-}
-// 获取时间
-function time() {
-  var today = new Date();
-  var y = today.getFullYear();
-  var a = today.getMonth() + 1;
-  var b = today.getDate();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  return "今日日期" + y + "/" + a + "/" + b;
-}
+
 
 class App extends Component {
 
@@ -60,7 +41,8 @@ class App extends Component {
       }
 
       this.setState({
-        value: ""
+        value: "",
+        time: 'Time'
       })
     } else {
       alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14")
@@ -69,9 +51,38 @@ class App extends Component {
 
   }
   render() {
+
+    // 加工时间
+    function checkTime(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }
+      return i;
+    }
+    // 获取时间
+    function time() {
+      var today = new Date();
+      var y = today.getFullYear();
+      var a = today.getMonth() + 1;
+      var b = today.getDate();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      return "Today's date : " + y + "/" + a + "/" + b + " | " + h + ":" + m + ":" + s;
+    }
+
+    setTimeout(() => {
+      this.setState({
+        time: time()
+      })
+    }, 1000)
+
+
     // 复制nameList 到listArr
     let listArr = { ...date.nameList };
-    console.log(listArr)
+    // console.log(listArr)
 
     // listArr的key的value
     let arrkeys = [];
@@ -83,7 +94,7 @@ class App extends Component {
       arrkeys.push(value);
       keyLen += 1;
     })
-    console.log(keyLen);
+    // console.log(keyLen);
 
     //负责存所有的轮换记录
     let roundArr = [];
@@ -112,6 +123,7 @@ class App extends Component {
     }
     return (
       <div>
+
         <h1>
           实务学堂2021秋季学期卫生值日
         </h1>
@@ -145,21 +157,54 @@ class App extends Component {
           </ol>
         </div>
         <div>
-          <div>二、三、四，楼打扫卫生需要扫至下层楼梯</div>
-          <div>一楼需要打扫院子</div>
-          <div>组长负责任务分配，以及讲卫生标准</div>
+          <ul>
+            分配及打扫
+            <li>组长负责任务分配，以及讲卫生标准</li>
+            <li>二、三、四，楼打扫卫生需打扫至下层楼梯</li>
+            <li>一楼需打扫院子</li>
+            <li>组长负责检查本楼层卫生（检查完成后可以让卫生监督员再次检查）</li>
+          </ul>
+          <br/>
+          <ul>
+            惩罚（2021.9.28生效）
+            <li>卫生不合格应扣小组（蚪币50蚪 \ 人民币）</li>
+            <li>（初次50蚪 \ 人民币）不合格依次翻倍</li>
+          </ul>
+          <br/>
+          <ul>
+            Help
+            <li>
+              <a href="mailto:2562178620@qq.com">有什么建议可通过邮箱发送：2562178620@qq.com</a>
+            </li>
+            <li>
+              <a href="https://calendar-lac.vercel.app">日历：tade</a>
+            </li>
+            <li>
+              <a href="https://github.com/chenjunyan1/name">github开源本页项目一切文件： https://github.com/chenjunyan1/name</a>
+            </li>
+            <li>
+              {this.state.time}
+            </li>
+          </ul>
         </div>
-        <br /><br /><br /><br /><br /><br />
+        <br />
+        <div>
+          搜索框教程：输入本周二的日期，如九月十四日 应输入：9-14 可查看本周值日&大扫除楼层值日表
+        </div>
+        <br /><br /><br />
         <div>
           <div>
-            {time()}
           </div>
           <form className="jilu" onSubmit={this.handleSubmit}>
             <div className="Input_chazhao">
               <input className="shuru" value={this.state.value} onChange={this.handleChange} placeholder="九月十四日 输入格式： 9-14" />
-              <input className="tijiao" type="submit" value="查找" />
+              <input className="tijiao" type="submit" value="Lookup" />
             </div>
           </form>
+        </div>
+        <div>
+          <br /><br />
+          JavaScript轮换算法 - Wonderland
         </div>
         <div>
           {
@@ -172,7 +217,7 @@ class App extends Component {
                   {
                     Rotation()[value].map((value_zu, index_zu) => {
                       return (
-                        <div key={value_zu}>
+                        <div key={value_zu} className="list_name">
                           {(index_zu + 1) + "楼 : " + value_zu}
                         </div>
                       )
