@@ -6,6 +6,19 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+.xiangshang{
+  width: 50px;
+  height: 50px;
+  bottom: 10px;
+  right: 10px;
+  position: fixed;
+}
+
+.xiangshang>img{
+  width: 50px;
+  height: 50px;
+}
 h1{
   text-align: center;
 }

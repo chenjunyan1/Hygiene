@@ -50,8 +50,12 @@ class App extends Component {
     } else {
       alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14")
     }
-
-
+  }
+  handclick() {
+    let anchorElement = document.getElementById('zhiri');
+    if (anchorElement) {
+      anchorElement.scrollIntoView({ behavior: "smooth", });
+    }
   }
   render() {
 
@@ -102,8 +106,10 @@ class App extends Component {
 
     return (
       <div>
-
-        <h1>
+        <div className="xiangshang" onClick={this.handclick.bind(this)}>
+          <img src="shang_home.svg" />
+        </div>
+        <h1 id="zhiri">
           实务学堂2021秋季学期卫生值日
         </h1>
         <div className="list">
