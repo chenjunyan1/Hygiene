@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import List from './Assembly/List'
 import date from './date.json'
 import './App.css'
-
+import Time from './Assembly/Time'
 
 
 //值日日期 
@@ -22,7 +22,7 @@ class App extends Component {
 
   }
 
-  
+
   // 监听value
   handleChange(event) {
     this.setState({ value: event.target.value });
@@ -33,10 +33,11 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (deta.indexOf(this.state.value) != -1) {
-      console.log("在本页面开始寻找ID:" + this.state.value)
+      console.log("在本页面开始寻找ID:" + this.state.value);
+      console.log("正在查找");
       let anchorElement = document.getElementById(this.state.value);
       if (anchorElement) {
-        console.log("正在查找");
+        console.log("正在前往");
         anchorElement.scrollIntoView({ behavior: "smooth", });
       } else {
         console.log("没找到")
@@ -44,7 +45,7 @@ class App extends Component {
 
       this.setState({
         value: "",
-        time: 'Time'
+        // time: 'Time'
       })
     } else {
       alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14")
@@ -54,32 +55,6 @@ class App extends Component {
   }
   render() {
 
-    // 加工时间
-    function checkTime(i) {
-      if (i < 10) {
-        i = "0" + i;
-      }
-      return i;
-    }
-    // 获取时间
-    function time() {
-      var today = new Date();
-      var y = today.getFullYear();
-      var a = today.getMonth() + 1;
-      var b = today.getDate();
-      var h = today.getHours();
-      var m = today.getMinutes();
-      var s = today.getSeconds();
-      m = checkTime(m);
-      s = checkTime(s);
-      return "Today's date : " + y + "/" + a + "/" + b + " | " + h + ":" + m + ":" + s;
-    }
-
-    setTimeout(() => {
-      this.setState({
-        time: time()
-      })
-    }, 1000)
 
 
     // 复制nameList 到listArr
@@ -124,7 +99,7 @@ class App extends Component {
       return roundArr;
     }
 
-    
+
     return (
       <div>
 
@@ -168,13 +143,13 @@ class App extends Component {
             <li>一楼需打扫院子</li>
             <li>组长负责检查本楼层卫生（检查完成后可以让卫生监督员再次检查）</li>
           </ul>
-          <br/>
+          <br />
           <ul>
             惩罚（2021.9.28生效）
             <li>卫生不合格应扣小组（蚪币50蚪 \ 人民币）</li>
             <li>（初次50蚪 \ 人民币）不合格依次翻倍</li>
           </ul>
-          <br/>
+          <br />
           <ul>
             Help
             <li>
@@ -187,7 +162,7 @@ class App extends Component {
               <a href="https://github.com/chenjunyan1/name">Github开源本页项目一切文件： https://github.com/chenjunyan1/name</a>
             </li>
             <li>
-              {this.state.time}
+              <Time />
             </li>
           </ul>
         </div>

@@ -10,6 +10,7 @@ export default class List extends Component {
     }
 
     render() {
+        console.log("List")
         return (
             <div className="list-name">
                 <div>{this.props.groupLeader}</div>
