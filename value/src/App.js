@@ -59,8 +59,6 @@ class App extends Component {
   }
   render() {
 
-
-
     // 复制nameList 到listArr
     let listArr = { ...date.nameList };
     // console.log(listArr)
@@ -170,6 +168,12 @@ class App extends Component {
             <li>
               <Time />
             </li>
+          </ul>
+          <ul>
+            打扫注意！！
+            <li>墙角、边</li>
+            <li>台面</li>
+            <li></li>
           </ul>
         </div>
         <br />
