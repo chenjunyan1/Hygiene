@@ -155,25 +155,49 @@ class App extends Component {
           </ul>
           <br />
           <ul>
+            清洁注意！！
+            <li>墙角、边</li>
+            <li>台面</li>
+            <li>个人物品请勿放在公共空间内</li>
+            <li>风扇（每周一擦）</li>
+            <li>书架(黑色框架)</li>
+          </ul>
+          <br />
+          <ul>
             Help
-            <li>
-              <a href="mailto:2562178620@qq.com">如有建议可通过发送邮箱至：2562178620@qq.com</a>
-            </li>
-            <li>
-              <a href="https://calendar-lac.vercel.app">日历：Dade</a>
-            </li>
-            <li>
-              <a href="https://github.com/chenjunyan1/name">Github开源本页项目一切文件： https://github.com/chenjunyan1/name</a>
-            </li>
             <li>
               <Time />
             </li>
-          </ul>
-          <ul>
-            打扫注意！！
-            <li>墙角、边</li>
-            <li>台面</li>
-            <li></li>
+            <li>
+              <div>
+                如有建议可通过发送邮箱至：
+                <a href="mailto:2562178620@qq.com">2562178620@qq.com</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                日历：
+                <a href="https://calendar-lac.vercel.app">Dade</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                Github开源本页项目一切文件：
+                <a href="https://github.com/chenjunyan1/name">https://github.com/chenjunyan1/name</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                连接WiFi：实务学堂-17G , 即可访问：
+                <a href="http://192.168.8.106/Yan_Wonderland/index.html">http://192.168.8.106/Yan_Wonderland/index.html</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                对外开放链接为：
+                <a href="https://name-chenjunyan1.vercel.app/">https://name-chenjunyan1.vercel.app</a>
+              </div>
+            </li>
           </ul>
         </div>
         <br />
@@ -215,7 +239,6 @@ class App extends Component {
                 </div>
               )
             })
-
           }
         </div>
 
