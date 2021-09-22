@@ -19,9 +19,7 @@ class App extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
-
 
   // 监听value
   handleChange(event) {
@@ -122,7 +120,11 @@ class App extends Component {
                           // console.log(item)
                           if (index == 0) {
                             return (
-                              <List key={index} groupLeader={"组长  " + item + ":"} />
+                              <List key={index} groupLeader={"组长  " + item + " :"} />
+                            )
+                          } else if (index == 1) {
+                            return (
+                              <List key={index} groupLeader={"副组长  " + item} />
                             )
                           } else {
                             return (
@@ -137,6 +139,9 @@ class App extends Component {
               })
             }
           </ol>
+          <div>
+            组长不在时副组长应担任组长位置
+          </div>
         </div>
         <div>
           <ul>
@@ -162,7 +167,7 @@ class App extends Component {
             <li>书架(黑色框架)</li>
           </ul>
           <br />
-          <ul>
+          <ul className="help">
             Help
             <li>
               <Time />

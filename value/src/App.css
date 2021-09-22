@@ -35,6 +35,10 @@ a{
 .member>div:nth-child(1){
   color: red;
 }
+
+.member>div:nth-child(2){
+  color: darkorchid;
+}
 ol>li:nth-child(1){
   background: #61dafb;
 }
@@ -100,6 +104,14 @@ input:focus{
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 400px) {
+
+.help{
+  overflow-y: auto;
+  width: 300px;
+}
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
