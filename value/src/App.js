@@ -101,7 +101,6 @@ class App extends Component {
       return roundArr;
     }
 
-
     return (
       <div>
         <div className="xiangshang" onClick={this.handclick.bind(this)}>
@@ -170,7 +169,7 @@ class App extends Component {
             </li>
             <li>
               <div>
-                如有建议可通过发送邮箱至：
+                如有建议可通过邮箱发送至：
                 <a href="mailto:2562178620@qq.com">2562178620@qq.com</a>
               </div>
             </li>
@@ -241,7 +240,6 @@ class App extends Component {
             })
           }
         </div>
-
       </div>
     )
   }
