@@ -8,9 +8,7 @@ import Time from './Assembly/Time'
 //值日日期 
 let deta = ["9-21", "9-28", "10-5", "10-12", "10-19", "10-26", "11-2", "11-9", "11-16", "11-23", "11-30", "12-7", "12-14", "12-21", "12-28", "1-4", "1-11", "1-18", "1-25", "2-1", "2-8", "2-15", "2-22"]
 
-
 class App extends Component {
-
   constructor(props) {
     super(props)
 
@@ -29,7 +27,7 @@ class App extends Component {
 
   // 点击后
   handleSubmit(event) {
-    event.preventDefault();
+    event.preventhefault();
     if (deta.indexOf(this.state.value) != -1) {
       console.log("在本页面开始寻找ID:" + this.state.value);
       console.log("正在查找");
@@ -63,7 +61,6 @@ class App extends Component {
 
     // listArr的key的value
     let arrkeys = [];
-
     //key的len 
     let keyLen = 0;
     // 计算key的len and 存key的value
@@ -158,14 +155,59 @@ class App extends Component {
             <li>（初次30蚪 \ 人民币）不合格依次翻倍</li>
           </ul>
           <br />
-          <ul>
-            清洁注意！！
-            <li>墙角、边</li>
-            <li>台面</li>
-            <li>个人物品请勿放在公共空间内</li>
-            <li>风扇（每周一擦）</li>
-            <li>书架(黑色框架)</li>
-          </ul>
+          <p>卫生打扫标准</p>
+          <div className="from_qingjie">
+            <table border="1">
+              <tr>
+                <th>一楼</th>
+                {
+                  date.str_1.map((item, index) => {
+                    return (
+                      <th key={item + index}>
+                        {item}
+                      </th>
+                    )
+                  })
+                }
+              </tr>
+              <tr>
+                <th>二楼</th>
+                {
+                  date.str_2.map((item, index) => {
+                    return (
+                      <th key={item + index}>
+                        {item}
+                      </th>
+                    )
+                  })
+                }
+              </tr>
+              <tr>
+                <th>三楼</th>
+                {
+                  date.str_3.map((item, index) => {
+                    return (
+                      <th key={item + index}>
+                        {item}
+                      </th>
+                    )
+                  })
+                }
+              </tr>
+              <tr>
+                <th>四楼</th>
+                {
+                  date.str_4.map((item, index) => {
+                    return (
+                      <th key={item + index}>
+                        {item}
+                      </th>
+                    )
+                  })
+                }
+              </tr>
+            </table>
+          </div>
           <br />
           <ul className="help">
             Help
@@ -204,6 +246,7 @@ class App extends Component {
             </li>
           </ul>
         </div>
+
         <br />
         <div>
           搜索框教程：输入本周二的日期，如九月十四日 应输入：9-14 可查看本周值日&大扫除楼层值日表

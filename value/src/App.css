@@ -105,13 +105,32 @@ input:focus{
   align-content: center;
   flex-wrap: wrap;
 }
+.from_qingjie{
+  width: 100%;
+  overflow: auto;
+  /* overflow:scroll; */
+  /* width: 1700px; */
+}
+table{
+width: 100%;
+table-layout:fixed;
+/* table-layout: fixed; */
+word-break: break-all;
+}
 
+tr{
+  height: 100px;
+}
+th{
+  width: 150px;
+}
 @media screen and (max-width: 400px) {
 
 .help{
   overflow-y: auto;
   width: 300px;
 }
+
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
