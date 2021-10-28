@@ -27,7 +27,7 @@ class App extends Component {
 
   // 点击后
   handleSubmit(event) {
-    event.preventhefault();
+    event.preventDefault();
     if (deta.indexOf(this.state.value) != -1) {
       console.log("在本页面开始寻找ID:" + this.state.value);
       console.log("正在查找");
@@ -39,10 +39,6 @@ class App extends Component {
         console.log("没找到")
       }
 
-      this.setState({
-        value: "",
-        // time: 'Time'
-      })
     } else {
       alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14")
     }
