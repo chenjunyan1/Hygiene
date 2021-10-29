@@ -150,7 +150,13 @@ class App extends Component {
             <li>（初次30蚪 \ 人民币）不合格依次翻倍</li>
           </ul>
           <br />
-          <p>卫生打扫标准</p>
+          <h2>卫生打扫标准如下列表</h2>
+          <ul>
+            <li>公共物品各归其位</li>
+            <li>可见台面无灰尘</li>
+            <li>地面垃圾桶无脚印</li>
+            <li>倾倒垃圾桶内垃圾</li>
+          </ul>
           <div className="from_qingjie">
             <table border="1">
               <tr>
