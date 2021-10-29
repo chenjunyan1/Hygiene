@@ -38,7 +38,6 @@ class App extends Component {
       } else {
         console.log("没找到")
       }
-
     } else {
       alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14")
     }
