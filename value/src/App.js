@@ -13,7 +13,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      value: ''
+      value: '',
+      num: 1,
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,8 +49,14 @@ class App extends Component {
       anchorElement.scrollIntoView({ behavior: "smooth", });
     }
   }
+  lookup(str) {
+    this.setState({
+      num: str,
+    });
+    console.log(this.state.num);
+   }
   render() {
-
+    // const date_str = "date.str_"+num;
     // 复制nameList 到listArr
     let listArr = { ...date.nameList };
     // console.log(listArr)
@@ -157,6 +164,40 @@ class App extends Component {
             <li>地面垃圾桶无脚印</li>
             <li>倾倒垃圾桶内垃圾</li>
           </ul>
+          <div>
+            点击查看标准
+          </div>
+          <div>
+            <div onClick={this.lookup.bind(this, 1)}>一楼</div>
+            <div onClick={this.lookup.bind(this, 2)}>二楼</div>
+            <div onClick={this.lookup.bind(this, 3)}>三楼</div>
+            <div onClick={this.lookup.bind(this, 4)}>四楼</div>
+          </div>
+
+          <div>
+            {/* {
+              ["date.str_"+this.state.num].map((item, index) => {
+                console.log(item)
+                return (
+                  <div key={item + index}>
+                    {item}
+                  </div>
+                )
+              })
+            } */}
+             {/* {
+               
+              date.str_1.map((item, index) => {
+                console.log(item)
+                return (
+                  <div key={item + index}>
+                    {item}
+                  </div>
+                )
+              })
+            } */}
+          </div>
+
           <div className="from_qingjie">
             <table border="1">
               <tr>

@@ -37,7 +37,7 @@ export default class Time extends Component {
                 this.setState({
                     time: time()
                 })
-                console.log(this.state.time)
+                // console.log(this.state.time)
             }
         }, 1000);
 
