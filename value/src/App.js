@@ -14,7 +14,7 @@ class App extends Component {
 
     this.state = {
       value: '',
-      num: 1,
+      num: "null",
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -54,7 +54,7 @@ class App extends Component {
       num: str,
     });
     console.log(this.state.num);
-   }
+  }
   render() {
     // const date_str = "date.str_"+num;
     // 复制nameList 到listArr
@@ -103,58 +103,41 @@ class App extends Component {
         <div className="xiangshang" onClick={this.handclick.bind(this)}>
           <img src="shang_home.svg" />
         </div>
-        <h1 id="zhiri">
+        <h3 id="zhiri">
           实务学堂2021秋季学期卫生值日
-        </h1>
+        </h3>
         <div className="list">
-          <ol>
-            {
-              Object.keys(date.nameList).map((value) => {
-                // console.log(value)
-                return (
-                  <li key={value}>
-                    <div className="member">
-                      {
-                        date.nameList[value].map((item, index) => {
-                          // console.log(item)
-                          if (index == 0) {
-                            return (
-                              <List key={index} groupLeader={"组长  " + item + " :"} />
-                            )
-                          } else if (index == 1) {
-                            return (
-                              <List key={index} groupLeader={"副组长  " + item} />
-                            )
-                          } else {
-                            return (
-                              <List key={index} Member={item} />
-                            )
-                          }
-                        })
-                      }
-                    </div>
-                  </li>
-                )
-              })
-            }
-          </ol>
-          <div>
-            组长不在时副组长应担任组长位置
-          </div>
+          {
+            Object.keys(date.nameList).map((value, index) => {
+              return (
+                <div key={index} className="member">
+                  {
+                    date.nameList[value].map((item, index) => {
+                      return (
+                        <div key={index}>
+                          {index == 0 ? "组长:" + item : item}
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+              )
+            })
+          }
         </div>
         <div>
+          <h2>分配及打扫</h2>
           <ul>
-            分配及打扫
             <li>组长负责任务分配，以及讲卫生标准</li>
             <li>二、三、四，楼打扫卫生需打扫至下层楼梯</li>
             <li>一楼需打扫院子</li>
             <li>组长负责检查本楼层卫生（检查完成后可以让卫生监督员再次检查）</li>
           </ul>
           <br />
+          <h2>惩罚（2021.9.28生效）</h2>
           <ul>
-            惩罚（2021.9.28生效）
             <li>卫生不合格应扣小组（蚪币30蚪 \ 人民币）</li>
-            <li>（初次30蚪 \ 人民币）不合格依次翻倍</li>
+            <li>（初次30蚪 \ 人民币）多次不合格依次翻倍</li>
           </ul>
           <br />
           <h2>卫生打扫标准如下列表</h2>
@@ -164,95 +147,82 @@ class App extends Component {
             <li>地面垃圾桶无脚印</li>
             <li>倾倒垃圾桶内垃圾</li>
           </ul>
-          <div>
-            点击查看标准
-          </div>
-          <div>
+          <h3>
+            点击对应楼层查看该区域标准
+          </h3>
+          <div className="floor">
             <div onClick={this.lookup.bind(this, 1)}>一楼</div>
             <div onClick={this.lookup.bind(this, 2)}>二楼</div>
             <div onClick={this.lookup.bind(this, 3)}>三楼</div>
             <div onClick={this.lookup.bind(this, 4)}>四楼</div>
-          </div>
-
-          <div>
-            {/* {
-              ["date.str_"+this.state.num].map((item, index) => {
-                console.log(item)
-                return (
-                  <div key={item + index}>
-                    {item}
-                  </div>
-                )
-              })
-            } */}
-             {/* {
-               
-              date.str_1.map((item, index) => {
-                console.log(item)
-                return (
-                  <div key={item + index}>
-                    {item}
-                  </div>
-                )
-              })
-            } */}
+            <div onClick={this.lookup.bind(this, "all")}>ALL</div>
           </div>
 
           <div className="from_qingjie">
-            <table border="1">
-              <tr>
-                <th>一楼</th>
+            {(this.state.num == 1 || this.state.num == "all") ? (
+              <div className="layer">
+                <h3>一楼</h3>
                 {
                   date.str_1.map((item, index) => {
                     return (
-                      <th key={item + index}>
-                        {item}
-                      </th>
+                      <div key={item + index}>
+                        <input type="checkbox" name="vehicle" value={"一楼" + index} />
+                        <div>{item}</div>
+                      </div>
                     )
                   })
                 }
-              </tr>
-              <tr>
-                <th>二楼</th>
+              </div>) : null
+            }
+            {(this.state.num == 2 || this.state.num == "all") ? (
+              <div className="layer">
+                <h3>二楼</h3>
                 {
                   date.str_2.map((item, index) => {
                     return (
-                      <th key={item + index}>
-                        {item}
-                      </th>
+                      <div key={item + index}>
+                        <input type="checkbox" name="vehicle" value={true} />
+                        <div>{item}</div>
+                      </div>
                     )
                   })
                 }
-              </tr>
-              <tr>
-                <th>三楼</th>
+              </div>) : null
+            }
+            {(this.state.num == 3 || this.state.num == "all") ? (
+              <div className="layer">
+                <h3>三楼</h3>
                 {
                   date.str_3.map((item, index) => {
                     return (
-                      <th key={item + index}>
-                        {item}
-                      </th>
+                      <div key={item + index}>
+                        <input type="checkbox" name="vehicle" value={true} />
+                        <div>{item}</div>
+                      </div>
                     )
                   })
                 }
-              </tr>
-              <tr>
-                <th>四楼</th>
+              </div>) : null
+            }
+            {(this.state.num == 4 || this.state.num == "all") ? (
+              <div className="layer">
+                <h3>四楼</h3>
                 {
                   date.str_4.map((item, index) => {
                     return (
-                      <th key={item + index}>
-                        {item}
-                      </th>
+                      <div key={item + index}>
+                        <input type="checkbox" name="vehicle" value={true} />
+                        <div>{item}</div>
+                      </div>
                     )
                   })
                 }
-              </tr>
-            </table>
+              </div>) : null
+            }
           </div>
           <br />
+          <h2>Help</h2>
           <ul className="help">
-            Help
             <li>
               <Time />
             </li>
@@ -306,7 +276,7 @@ class App extends Component {
         </div>
         <div>
           <br /><br />
-          JavaScript轮换算法 - Wonderland
+          <h4>JavaScript轮换算法 - Wonderland</h4>
         </div>
         <div>
           {
