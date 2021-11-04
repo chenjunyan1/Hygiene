@@ -147,7 +147,11 @@ table-layout:fixed;
 /* table-layout: fixed; */
 word-break: break-all;
 }
-
+.time{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
 tr{
   height: 100px;
 }

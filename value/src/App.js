@@ -100,6 +100,9 @@ class App extends Component {
 
     return (
       <div>
+        <div className="time">
+          <Time />
+        </div>
         <div className="xiangshang" onClick={this.handclick.bind(this)}>
           <img src="shang_home.svg" />
         </div>
@@ -166,7 +169,7 @@ class App extends Component {
                   date.str_1.map((item, index) => {
                     return (
                       <div key={item + index}>
-                        <input type="checkbox" name="vehicle" value={"一楼" + index} />
+                        <input type="checkbox" name="vehicle" value={true} />
                         <div>{item}</div>
                       </div>
                     )
@@ -223,9 +226,6 @@ class App extends Component {
           <br />
           <h2>Help</h2>
           <ul className="help">
-            <li>
-              <Time />
-            </li>
             <li>
               <div>
                 如有建议可通过邮箱发送至：
