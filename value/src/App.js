@@ -150,9 +150,11 @@ class App extends Component {
             <li>地面垃圾桶无脚印</li>
             <li>倾倒垃圾桶内垃圾</li>
           </ul>
+
           <h3>
             点击对应楼层查看该区域标准
           </h3>
+
           <div className="floor">
             <div onClick={this.lookup.bind(this, 1)}>一楼</div>
             <div onClick={this.lookup.bind(this, 2)}>二楼</div>
@@ -169,7 +171,11 @@ class App extends Component {
                   date.str_1.map((item, index) => {
                     return (
                       <div key={item + index}>
-                        <input type="checkbox" name="vehicle" value={true} />
+                        <input
+                          type="checkbox"
+                          name="vehicle"
+                          value={true}
+                        />
                         <div>{item}</div>
                       </div>
                     )
@@ -184,7 +190,11 @@ class App extends Component {
                   date.str_2.map((item, index) => {
                     return (
                       <div key={item + index}>
-                        <input type="checkbox" name="vehicle" value={true} />
+                        < input
+                          type="checkbox"
+                          name="vehicle"
+                          value={true}
+                        />
                         <div>{item}</div>
                       </div>
                     )
@@ -199,7 +209,11 @@ class App extends Component {
                   date.str_3.map((item, index) => {
                     return (
                       <div key={item + index}>
-                        <input type="checkbox" name="vehicle" value={true} />
+                        < input
+                          type="checkbox"
+                          name="vehicle"
+                          value={true}
+                        />
                         <div>{item}</div>
                       </div>
                     )
@@ -214,7 +228,11 @@ class App extends Component {
                   date.str_4.map((item, index) => {
                     return (
                       <div key={item + index}>
-                        <input type="checkbox" name="vehicle" value={true} />
+                        < input
+                          type="checkbox"
+                          name="vehicle"
+                          value={true}
+                        />
                         <div>{item}</div>
                       </div>
                     )
@@ -276,7 +294,7 @@ class App extends Component {
         </div>
         <div>
           <br /><br />
-          <h4>JavaScript轮换算法 - Wonderland</h4>
+          <h4>JavaScript ObjArr轮换算法 - Wonderland</h4>
         </div>
         <div>
           {
