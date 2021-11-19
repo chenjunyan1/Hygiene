@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       value: '',
       num: "null",
-      one: [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+      one: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       two: [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       three: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       four: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
