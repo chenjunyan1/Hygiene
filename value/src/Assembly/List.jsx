@@ -8,13 +8,18 @@ export default class List extends Component {
 
         }
     }
-
     render() {
-        console.log("List")
+        // frame 接收布尔值
+        // region 接收文字
+        const { frame, region, dianji } = this.props;
         return (
             <div className="list-name">
-                <div>{this.props.groupLeader}</div>
-                <div>{this.props.Member}</div>
+                <div>
+                    <div onClick={dianji} style={{ backgroundColor: (frame) ? "darkgreen" : "rgb(241, 39, 17)" }}></div>
+                </div>
+                <div>
+                    {region}
+                </div>
             </div>
         )
     }

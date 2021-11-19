@@ -15,6 +15,10 @@ class App extends Component {
     this.state = {
       value: '',
       num: "null",
+      one: [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+      two: [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+      three: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+      four: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -54,6 +58,25 @@ class App extends Component {
       num: str,
     });
     console.log(this.state.num);
+  }
+  // num 楼层
+  //  index 区域
+  // boo true/false 合格/不合格
+  qualified(nub, index, boo, item) {
+    let newArr = [...this.state[nub]]
+    if (boo == true) {
+      newArr[index] = false;
+      this.setState({
+        [nub]: newArr
+      })
+      console.log(item + "不合格");
+    } else {
+      newArr[index] = true;
+      this.setState({
+        [nub]: newArr
+      })
+      console.log(item + "合格");
+    }
   }
   render() {
     // const date_str = "date.str_"+num;
@@ -138,6 +161,7 @@ class App extends Component {
           </ul>
           <br />
           <h2>惩罚（2021.9.28生效）</h2>
+          <p></p>
           <ul>
             <li>卫生不合格应扣小组（蚪币30蚪 \ 人民币）</li>
             <li>（初次30蚪 \ 人民币）多次不合格依次翻倍</li>
@@ -171,12 +195,11 @@ class App extends Component {
                   date.str_1.map((item, index) => {
                     return (
                       <div key={item + index}>
-                        <input
-                          type="checkbox"
-                          name="vehicle"
-                          value={true}
+                        <List
+                          frame={this.state.one[index]}
+                          region={item}
+                          dianji={this.qualified.bind(this, "one", index, this.state.one[index], item)}
                         />
-                        <div>{item}</div>
                       </div>
                     )
                   })
@@ -190,12 +213,11 @@ class App extends Component {
                   date.str_2.map((item, index) => {
                     return (
                       <div key={item + index}>
-                        < input
-                          type="checkbox"
-                          name="vehicle"
-                          value={true}
+                        <List
+                          frame={this.state.two[index]}
+                          region={item}
+                          dianji={this.qualified.bind(this, "two", index, this.state.two[index], item)}
                         />
-                        <div>{item}</div>
                       </div>
                     )
                   })
@@ -209,12 +231,11 @@ class App extends Component {
                   date.str_3.map((item, index) => {
                     return (
                       <div key={item + index}>
-                        < input
-                          type="checkbox"
-                          name="vehicle"
-                          value={true}
+                        <List
+                          frame={this.state.three[index]}
+                          region={item}
+                          dianji={this.qualified.bind(this, "three", index, this.state.three[index], item)}
                         />
-                        <div>{item}</div>
                       </div>
                     )
                   })
@@ -228,12 +249,11 @@ class App extends Component {
                   date.str_4.map((item, index) => {
                     return (
                       <div key={item + index}>
-                        < input
-                          type="checkbox"
-                          name="vehicle"
-                          value={true}
+                        <List
+                          frame={this.state.four[index]}
+                          region={item}
+                          dianji={this.qualified.bind(this, "four", index, this.state.four[index],item)}
                         />
-                        <div>{item}</div>
                       </div>
                     )
                   })
