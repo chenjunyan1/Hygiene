@@ -9,11 +9,13 @@ import Time from './Assembly/Time'
 let deta = ["9-21", "9-28", "10-5", "10-12", "10-19", "10-26", "11-2", "11-9", "11-16", "11-23", "11-30", "12-7", "12-14", "12-21", "12-28", "1-4", "1-11", "1-18", "1-25", "2-1", "2-8", "2-15", "2-22"]
 
 class App extends Component {
+  // 构造函数
   constructor(props) {
     super(props)
 
     this.state = {
       value: '',
+      value_word:'',
       num: "null",
       one: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       two: [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -24,13 +26,13 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // 监听value
+  // 监听卫生检查记录input的value
   handleChange(event) {
     this.setState({ value: event.target.value });
     console.log(this.state.value)
   };
 
-  // 点击后
+  // 点击后，滑动到该日期的卫生值日表
   handleSubmit(event) {
     event.preventDefault();
     if (deta.indexOf(this.state.value) != -1) {
@@ -47,18 +49,25 @@ class App extends Component {
       alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14")
     }
   }
+
+// 返回最顶
   handclick() {
     let anchorElement = document.getElementById('zhiri');
     if (anchorElement) {
       anchorElement.scrollIntoView({ behavior: "smooth", });
     }
   }
+
+// 查看检查楼层
   lookup(str) {
     this.setState({
       num: str,
     });
     console.log(this.state.num);
   }
+
+
+  // 更新区域状态
   // num 楼层
   //  index 区域
   // boo true/false 合格/不合格
@@ -78,6 +87,24 @@ class App extends Component {
       console.log(item + "合格");
     }
   }
+
+  // 密码输入框
+  handleChange_word(event){
+    this.setState({ value_word: event.target.value });
+    console.log(this.state.value_word);
+  }
+
+// 密码验证
+  handclick_word(event){
+    event.preventDefault();
+    let input_word = this.state.value_word;
+    if (input_word == "123456") {
+      alert("提交成功");
+    }else{
+      alert("密码错误")
+    }
+  }
+
   render() {
     // const date_str = "date.str_"+num;
     // 复制nameList 到listArr
@@ -252,7 +279,7 @@ class App extends Component {
                         <List
                           frame={this.state.four[index]}
                           region={item}
-                          dianji={this.qualified.bind(this, "four", index, this.state.four[index],item)}
+                          dianji={this.qualified.bind(this, "four", index, this.state.four[index], item)}
                         />
                       </div>
                     )
@@ -261,6 +288,20 @@ class App extends Component {
               </div>) : null
             }
           </div>
+          {this.state.num == "all" ? (
+            <div>
+              <input
+                placeholder="请输入提交密码"
+                onChange={this.handleChange_word.bind(this)}
+              />
+              <button
+                onClick={this.handclick_word.bind(this)}
+              >
+                提交
+              </button>
+            </div>
+          ) : null
+          }
           <br />
           <h2>Help</h2>
           <ul className="help">
@@ -307,8 +348,14 @@ class App extends Component {
           </div>
           <form className="jilu" onSubmit={this.handleSubmit}>
             <div className="Input_chazhao">
-              <input className="shuru" value={this.state.value} onChange={this.handleChange} placeholder="九月十四日 输入格式： 9-14" />
-              <input className="tijiao" type="submit" value="Lookup" />
+              <input className="shuru"
+                value={this.state.value}
+                onChange={this.handleChange}
+                placeholder="九月十四日 输入格式： 9-14" />
+              <input className="tijiao"
+                type="submit"
+                value="Lookup"
+              />
             </div>
           </form>
         </div>
