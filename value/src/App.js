@@ -5,6 +5,14 @@ import './App.css'
 import Time from './Assembly/Time'
 
 
+const AV = require('leancloud-storage');
+const { Query, User } = AV;
+AV.init({
+  appId: "v6yTYDj8Lvd4tPoqdz4j85qi-gzGzoHsz",
+  appKey: "kmVzFkIPu7YkAB6CqHoRQqpX",
+  serverURL: "https://v6ytydj8.lc-cn-n1-shared.com"
+});
+
 //值日日期 
 let deta = ["9-21", "9-28", "10-5", "10-12", "10-19", "10-26", "11-2", "11-9", "11-16", "11-23", "11-30", "12-7", "12-14", "12-21", "12-28", "1-4", "1-11", "1-18", "1-25", "2-1", "2-8", "2-15", "2-22"]
 
@@ -15,7 +23,7 @@ class App extends Component {
 
     this.state = {
       value: '',
-      value_word:'',
+      value_word: '',
       num: "null",
       one: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       two: [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -50,7 +58,7 @@ class App extends Component {
     }
   }
 
-// 返回最顶
+  // 返回最顶
   handclick() {
     let anchorElement = document.getElementById('zhiri');
     if (anchorElement) {
@@ -58,7 +66,7 @@ class App extends Component {
     }
   }
 
-// 查看检查楼层
+  // 查看检查楼层
   lookup(str) {
     this.setState({
       num: str,
@@ -89,18 +97,42 @@ class App extends Component {
   }
 
   // 密码输入框
-  handleChange_word(event){
+  handleChange_word(event) {
     this.setState({ value_word: event.target.value });
     console.log(this.state.value_word);
   }
 
-// 密码验证
-  handclick_word(event){
+  // 密码验证
+  // 提交数据
+  handclick_word(event) {
     event.preventDefault();
+    // 获取todo
+    const query = new AV.Query('Todo');
+    // 声明 class
+    const Todo = AV.Object.extend('Todo');
+
+    // 构建对象
+    const todo = new Todo();
+
     let input_word = this.state.value_word;
-    if (input_word == "123456") {
+    if (input_word == "111") {
+      // 为属性赋值
+      todo.set('title', JSON.stringify(this.state.one));
+
+      // 将对象保存到云端
+      todo.save().then((Todo) => {
+        // 成功保存之后，执行其他逻辑
+        console.log("保存成功");
+      }, (error) => {
+        // 异常处理
+        console.log("TMD");
+      });
       alert("提交成功");
-    }else{
+      query.find().then((items) => {
+        console.log(items);
+      });
+      AV.Cloud.requestSmsCode('15910790904');
+    } else {
       alert("密码错误")
     }
   }
@@ -288,6 +320,8 @@ class App extends Component {
               </div>) : null
             }
           </div>
+
+          {/* 提交文档 */}
           {this.state.num == "all" ? (
             <div>
               <input
