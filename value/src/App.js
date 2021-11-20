@@ -131,7 +131,6 @@ class App extends Component {
       query.find().then((items) => {
         console.log(items);
       });
-      AV.Cloud.requestSmsCode('15910790904');
     } else {
       alert("密码错误")
     }
@@ -418,6 +417,9 @@ class App extends Component {
               )
             })
           }
+        </div>
+        <div>
+          <video src="king.mp4"></video>
         </div>
       </div>
     )
