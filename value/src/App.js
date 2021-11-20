@@ -418,9 +418,6 @@ class App extends Component {
             })
           }
         </div>
-        <div>
-          <video src="king.mp4"></video>
-        </div>
       </div>
     )
   }
