@@ -16,6 +16,51 @@ AV.init({
 //值日日期 
 let deta = ["9-21", "9-28", "10-5", "10-12", "10-19", "10-26", "11-2", "11-9", "11-16", "11-23", "11-30", "12-7", "12-14", "12-21", "12-28", "1-4", "1-11", "1-18", "1-25", "2-1", "2-8", "2-15", "2-22"]
 
+
+// const date_str = "date.str_"+num;
+// 复制nameList 到listArr
+let listArr = { ...date.nameList };
+// console.log(listArr)
+
+// listArr的key的value
+let arrkeys = [];
+//key的len 
+let keyLen = 0;
+// 计算key的len and 存key的value
+Object.keys(listArr).map((value) => {
+  arrkeys.push(value);
+  keyLen += 1;
+})
+// console.log(keyLen);
+
+let roundArr = Rotation();
+
+// 轮换function  先轮换，然后改变原数组，改完之后然后再push到轮换记录
+function Rotation() {
+  //负责存所有的轮换记录
+  let roundArr = [];
+  // roundArr.push(listArr);
+
+  for (let tate_f = 0; tate_f < deta.length; tate_f++) {
+    // console.log(deta[tate_f])
+    let a = listArr[arrkeys[0]];
+    // console.log(a);
+    let obj = [];
+    for (let obj_list = 0; obj_list < keyLen; obj_list++) {
+      if (obj_list != keyLen - 1) {
+        listArr[arrkeys[obj_list]] = listArr[arrkeys[obj_list + 1]];
+        obj.push(listArr[arrkeys[obj_list]]);
+      } else {
+        listArr[arrkeys[obj_list]] = a;
+        obj.push(listArr[arrkeys[obj_list]]);
+      }
+    }
+    roundArr.push(obj);
+  }
+  return roundArr;
+}
+
+
 class App extends Component {
   // 构造函数
   constructor(props) {
@@ -24,6 +69,7 @@ class App extends Component {
     this.state = {
       value: '',
       value_word: '',
+      value_date: '',
       num: "null",
       one: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       two: [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -74,7 +120,6 @@ class App extends Component {
     console.log(this.state.num);
   }
 
-
   // 更新区域状态
   // num 楼层
   //  index 区域
@@ -102,6 +147,12 @@ class App extends Component {
     console.log(this.state.value_word);
   }
 
+
+  handleChange_date(event) {
+    this.setState({ value_date: event.target.value });
+    console.log(this.state.value_date)
+  }
+
   // 密码验证
   // 提交数据
   handclick_word(event) {
@@ -114,71 +165,52 @@ class App extends Component {
     // 构建对象
     const todo = new Todo();
 
-    let input_word = this.state.value_word;
-    if (input_word == "111") {
-      // 为属性赋值
-      todo.set('title', JSON.stringify(this.state.one));
+    // 判断日期是否正确（日期格式正确才会判断密码是否正确）
+    if (deta.indexOf(this.state.value_date) != -1) {
 
-      // 将对象保存到云端
-      todo.save().then((Todo) => {
-        // 成功保存之后，执行其他逻辑
-        console.log("保存成功");
-      }, (error) => {
-        // 异常处理
-        console.log("TMD");
-      });
-      alert("提交成功");
-      query.find().then((items) => {
-        console.log(items);
-      });
+      // 判断密码是否正确
+      let input_word = this.state.value_word;
+      if (input_word == "111") {
+
+        // 为属性赋值
+        var json = {
+          "one": this.state.one,
+          "two": this.state.two,
+          "three": this.state.three,
+          "fout": this.state.four
+        };
+        console.log(json)
+        //转为JSON字符串
+        var jsonStr = JSON.stringify(json);
+        console.log(jsonStr);
+        console.log(roundArr[deta.indexOf(this.state.value_date)]);
+        // 上传卫生状况
+        todo.set('title', jsonStr);
+        // 上传当日值日人员
+        todo.set('TeamMembers', JSON.stringify(roundArr[deta.indexOf(this.state.value_date)]));
+        // 将对象保存到云端
+        todo.save().then((Todo) => {
+          // 成功保存之后，执行其他逻辑
+          console.log("保存成功");
+        }, (error) => {
+          // 异常处理
+          console.log("TMD");
+        });
+        alert("提交成功");
+        // 请求数据
+        query.find().then((items) => {
+          console.log(items);
+        });
+      } else {
+        alert("密码错误")
+      }
     } else {
-      alert("密码错误")
+      alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14")
     }
   }
 
   render() {
-    // const date_str = "date.str_"+num;
-    // 复制nameList 到listArr
-    let listArr = { ...date.nameList };
-    // console.log(listArr)
-
-    // listArr的key的value
-    let arrkeys = [];
-    //key的len 
-    let keyLen = 0;
-    // 计算key的len and 存key的value
-    Object.keys(listArr).map((value) => {
-      arrkeys.push(value);
-      keyLen += 1;
-    })
-    // console.log(keyLen);
-
-    //负责存所有的轮换记录
-    let roundArr = [];
-    // roundArr.push(listArr);
-
-
-    // 轮换function  先轮换，然后改变原数组，改完之后然后再push到轮换记录
-    function Rotation() {
-      for (let tate_f = 0; tate_f < deta.length; tate_f++) {
-        // console.log(deta[tate_f])
-        let a = listArr[arrkeys[0]];
-        // console.log(a);
-        let obj = [];
-        for (let obj_list = 0; obj_list < keyLen; obj_list++) {
-          if (obj_list != keyLen - 1) {
-            listArr[arrkeys[obj_list]] = listArr[arrkeys[obj_list + 1]];
-            obj.push(listArr[arrkeys[obj_list]]);
-          } else {
-            listArr[arrkeys[obj_list]] = a;
-            obj.push(listArr[arrkeys[obj_list]]);
-          }
-        }
-        roundArr.push(obj);
-      }
-      return roundArr;
-    }
-
+    // console.log(Rotation());
     return (
       <div>
         <div className="time">
@@ -325,7 +357,13 @@ class App extends Component {
             <div>
               <input
                 placeholder="请输入提交密码"
+                value={this.state.value_word}
                 onChange={this.handleChange_word.bind(this)}
+              />
+              <input
+                placeholder="九月十四日 输入格式： 9-14"
+                value={this.state.value_date}
+                onChange={this.handleChange_date.bind(this)}
               />
               <button
                 onClick={this.handclick_word.bind(this)}
@@ -398,16 +436,16 @@ class App extends Component {
         </div>
         <div>
           {
-            Object.keys(Rotation()).map((value, index) => {
+            Object.keys(roundArr).map((value, index) => {
               return (
                 <div key={index} className="lun" id={deta[index]}>
                   <div>
                     {"第" + (index + 1) + "周 ： Date : " + deta[index]}
                   </div>
                   {
-                    Rotation()[value].map((value_zu, index_zu) => {
+                    roundArr[value].map((value_zu, index_zu) => {
                       return (
-                        <div key={value_zu} className="list_name">
+                        <div key={value_zu + index_zu} className="list_name">
                           {(index_zu + 1) + "楼 : " + value_zu}
                         </div>
                       )
