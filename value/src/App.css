@@ -142,10 +142,10 @@ input:focus{
   }
 }
 table{
-width: 100%;
-table-layout:fixed;
-/* table-layout: fixed; */
-word-break: break-all;
+  width: 100%;
+  table-layout:fixed;
+  /* table-layout: fixed; */
+  word-break: break-all;
 }
 .time{
   position: fixed;
@@ -171,6 +171,28 @@ th{
   padding: 5px;
   border-radius: 5px;
   /* width: 300px; */
+}
+
+.redAndGreen{
+  display: block;
+  font-size: 20px;
+}
+.redAndGreen>div{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.redAndGreen>div:first-child>div:nth-child(2){
+  width: 30px;
+  height: 30px;
+  background: #10ddc2;
+  border-radius: 50%;
+}
+.redAndGreen>div:nth-child(2)>div:nth-child(2){
+  width: 30px;
+  height: 30px;
+  background: #f57170;
+  border-radius: 50%;
 }
 
 input[type="checkbox"] {

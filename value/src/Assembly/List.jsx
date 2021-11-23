@@ -15,7 +15,7 @@ export default class List extends Component {
         return (
             <div className="list-name">
                 <div  onClick={dianji}>
-                    <div style={{ backgroundColor: (frame) ? "#10ddc2" : "#f57170" }}></div>
+                    <div style={{ backgroundColor: (frame) ?  "#f57170":"#10ddc2" }}></div>
                 </div>
                 <div>
                     {region}

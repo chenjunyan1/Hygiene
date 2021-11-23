@@ -275,6 +275,21 @@ class App extends Component {
             <div onClick={this.lookup.bind(this, 4)}>四楼</div>
             <div onClick={this.lookup.bind(this, "all")}>ALL</div>
           </div>
+          {(this.state.num != "null") ? (
+            <div className="redAndGreen">
+              <div>
+                <div>框内颜色</div>
+                <div></div>
+                <div>为合格</div>
+              </div>
+              <div>
+                <div>框内颜色</div>
+                <div></div>
+                <div>为不合格</div>
+              </div>
+            </div>
+          ) : null
+          }
 
           <div className="from_qingjie">
             {(this.state.num == 1 || this.state.num == "all") ? (
