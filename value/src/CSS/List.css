@@ -7,11 +7,14 @@
     width: 28px;
     height: 30px;
     margin: 3px;
+    border-radius: 50%;
 }
 .list-name>div:nth-child(2){
     align-self: center;
     margin-left: 20px;
 }
 .list-name>div:first-child{
-    border-style: outset;
+    border:3px solid;
+    border-color: #ffde7d #f6416c #f8f3d4 #00b8a9;
+    border-radius: 50%;
 }

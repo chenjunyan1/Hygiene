@@ -147,7 +147,6 @@ class App extends Component {
     console.log(this.state.value_word);
   }
 
-
   handleChange_date(event) {
     this.setState({ value_date: event.target.value });
     console.log(this.state.value_date)

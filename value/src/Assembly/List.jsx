@@ -14,8 +14,8 @@ export default class List extends Component {
         const { frame, region, dianji } = this.props;
         return (
             <div className="list-name">
-                <div>
-                    <div onClick={dianji} style={{ backgroundColor: (frame) ? "darkgreen" : "rgb(241, 39, 17)" }}></div>
+                <div  onClick={dianji}>
+                    <div style={{ backgroundColor: (frame) ? "#10ddc2" : "#f57170" }}></div>
                 </div>
                 <div>
                     {region}
