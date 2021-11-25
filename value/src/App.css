@@ -71,7 +71,7 @@ a{
 .list>div:nth-child(4){
   background: #f38181;
 }
-.list{
+.list{ 
   /* width: 600px; */
   
 }
@@ -194,7 +194,35 @@ th{
   background: #f57170;
   border-radius: 50%;
 }
+.all_tijiao{
+  display: flex;
+}
+.all_tijiao>input{
+    height: 40px;
+    text-align: center;
+    width: 30%;
+    box-shadow: none;
+    border-radius: 10px 10px 10px 10px;
+    border: 2px solid #c4c7ce;
+    background: #fff;
+    color: #222;
+}
+.all_tijiao>button{
+  height: 46px;
+  width: 20%;
+  background-color: #4e6ef2;
+  border-radius: 0 10px 10px 0;
+  font-size: 17px;
+  color: #fff;
+  box-shadow: none;
+  font-weight: 400;
+  border: none;
 
+}
+.all_tijiao>input:nth-child(2){
+  /* border-right: none; */
+
+}
 input[type="checkbox"] {
   width: 20px;
   height: 20px;

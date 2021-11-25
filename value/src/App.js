@@ -97,13 +97,13 @@ class App extends Component {
         console.log("正在前往");
         anchorElement.scrollIntoView({ behavior: "smooth", });
       } else {
-        console.log("没找到")
+        console.log("没找到");
       }
     } else {
-      alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14")
+      alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14");
     }
   }
-
+ 
   // 返回最顶
   handclick() {
     let anchorElement = document.getElementById('zhiri');
@@ -125,18 +125,18 @@ class App extends Component {
   //  index 区域
   // boo true/false 合格/不合格
   qualified(nub, index, boo, item) {
-    let newArr = [...this.state[nub]]
+    let newArr = [...this.state[nub]];
     if (boo == true) {
       newArr[index] = false;
       this.setState({
         [nub]: newArr
-      })
+      });
       console.log(item + "不合格");
     } else {
       newArr[index] = true;
       this.setState({
         [nub]: newArr
-      })
+      });
       console.log(item + "合格");
     }
   }
@@ -363,12 +363,12 @@ class App extends Component {
                   })
                 }
               </div>) : null
-            }
+            } 
           </div>
 
-          {/* 提交文档 */}
+          {/* 提交列表 */}
           {this.state.num == "all" ? (
-            <div>
+            <div className="all_tijiao">
               <input
                 placeholder="请输入提交密码"
                 value={this.state.value_word}
@@ -387,6 +387,8 @@ class App extends Component {
             </div>
           ) : null
           }
+
+          {/* 帮助 */}
           <br />
           <h2>Help</h2>
           <ul className="help">
