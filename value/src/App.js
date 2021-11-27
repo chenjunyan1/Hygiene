@@ -16,7 +16,6 @@ AV.init({
 //值日日期 
 let deta = ["9-21", "9-28", "10-5", "10-12", "10-19", "10-26", "11-2", "11-9", "11-16", "11-23", "11-30", "12-7", "12-14", "12-21", "12-28", "1-4", "1-11", "1-18", "1-25", "2-1", "2-8", "2-15", "2-22"]
 
-
 // const date_str = "date.str_"+num;
 // 复制nameList 到listArr
 let listArr = { ...date.nameList };
@@ -83,27 +82,27 @@ class App extends Component {
   // 监听卫生检查记录input的value
   handleChange(event) {
     this.setState({ value: event.target.value });
-    console.log(this.state.value)
+    // console.log(this.state.value)
   };
 
   // 点击后，滑动到该日期的卫生值日表
   handleSubmit(event) {
     event.preventDefault();
     if (deta.indexOf(this.state.value) != -1) {
-      console.log("在本页面开始寻找ID:" + this.state.value);
-      console.log("正在查找");
+      // console.log("在本页面开始寻找ID:" + this.state.value);
+      // console.log("正在查找");
       let anchorElement = document.getElementById(this.state.value);
       if (anchorElement) {
-        console.log("正在前往");
+        // console.log("正在前往");
         anchorElement.scrollIntoView({ behavior: "smooth", });
       } else {
-        console.log("没找到");
+        // console.log("没找到");
       }
     } else {
       alert("输入日期格式错误或不是周二日期 " + "\n" + "九月十四日 输入格式： 9-14");
     }
   }
- 
+
   // 返回最顶
   handclick() {
     let anchorElement = document.getElementById('zhiri');
@@ -117,7 +116,7 @@ class App extends Component {
     this.setState({
       num: str,
     });
-    console.log(this.state.num);
+    // console.log(this.state.num);
   }
 
   // 更新区域状态
@@ -131,25 +130,25 @@ class App extends Component {
       this.setState({
         [nub]: newArr
       });
-      console.log(item + "不合格");
+      // console.log(item + "不合格");
     } else {
       newArr[index] = true;
       this.setState({
         [nub]: newArr
       });
-      console.log(item + "合格");
+      // console.log(item + "合格");
     }
   }
 
   // 密码输入框
   handleChange_word(event) {
     this.setState({ value_word: event.target.value });
-    console.log(this.state.value_word);
+    // console.log(this.state.value_word);
   }
-
+  // 日期提交输入框
   handleChange_date(event) {
     this.setState({ value_date: event.target.value });
-    console.log(this.state.value_date)
+    // console.log(this.state.value_date)
   }
 
   // 密码验证
@@ -157,7 +156,7 @@ class App extends Component {
   handclick_word(event) {
     event.preventDefault();
     // 获取todo
-    const query = new AV.Query('Todo');
+    // const query = new AV.Query('Todo');
     // 声明 class
     const Todo = AV.Object.extend('Todo');
 
@@ -178,11 +177,11 @@ class App extends Component {
           "three": this.state.three,
           "fout": this.state.four
         };
-        console.log(json)
+        // console.log(json);
         //转为JSON字符串
         var jsonStr = JSON.stringify(json);
-        console.log(jsonStr);
-        console.log(roundArr[deta.indexOf(this.state.value_date)]);
+        // console.log(jsonStr);
+        // console.log(roundArr[deta.indexOf(this.state.value_date)]);
         // 上传卫生状况
         todo.set('title', jsonStr);
         // 上传当日值日人员
@@ -197,9 +196,9 @@ class App extends Component {
         });
         alert("提交成功");
         // 请求数据
-        query.find().then((items) => {
-          console.log(items);
-        });
+        // query.find().then((items) => {
+        //   console.log(items);
+        // });
       } else {
         alert("密码错误")
       }
@@ -250,7 +249,7 @@ class App extends Component {
           </ul>
           <br />
           <h2>惩罚（2021.9.28生效）</h2>
-          <p></p>
+          <p>一周内出现两次及两次以上不合格，将按照惩罚标准惩罚该小组</p>
           <ul>
             <li>卫生不合格应扣小组（蚪币30蚪 \ 人民币）</li>
             <li>（初次30蚪 \ 人民币）多次不合格依次翻倍</li>
@@ -297,6 +296,7 @@ class App extends Component {
                 <h3>一楼</h3>
                 {
                   date.str_1.map((item, index) => {
+                    console.log("显示")
                     return (
                       <div key={item + index}>
                         <List
@@ -363,7 +363,7 @@ class App extends Component {
                   })
                 }
               </div>) : null
-            } 
+            }
           </div>
 
           {/* 提交列表 */}
