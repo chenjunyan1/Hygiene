@@ -266,7 +266,9 @@ class App extends Component {
           <h3>
             点击对应楼层查看该区域标准
           </h3>
-
+          <div>
+            <div>历史检查数据：<a src="https://inspection-record.vercel.app/">https://inspection-record.vercel.app</a></div>
+          </div>
           <div className="floor">
             <div onClick={this.lookup.bind(this, 1)}>一楼</div>
             <div onClick={this.lookup.bind(this, 2)}>二楼</div>
