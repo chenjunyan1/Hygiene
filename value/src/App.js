@@ -72,7 +72,7 @@ class App extends Component {
       num: "null",
       one: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       two: [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-      three: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+      three: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       four: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
     }
     this.handleChange = this.handleChange.bind(this);
