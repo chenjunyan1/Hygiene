@@ -145,6 +145,7 @@ class App extends Component {
     this.setState({ value_word: event.target.value });
     // console.log(this.state.value_word);
   }
+  
   // 日期提交输入框
   handleChange_date(event) {
     this.setState({ value_date: event.target.value });
