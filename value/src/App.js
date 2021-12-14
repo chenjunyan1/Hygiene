@@ -3,7 +3,7 @@ import List from './Assembly/List'
 import date from './date.json'
 import './App.css'
 import Time from './Assembly/Time'
-
+import Card from './Assembly/Card'
 
 const AV = require('leancloud-storage');
 const { Query, User } = AV;
@@ -145,7 +145,7 @@ class App extends Component {
     this.setState({ value_word: event.target.value });
     // console.log(this.state.value_word);
   }
-  
+
   // 日期提交输入框
   handleChange_date(event) {
     this.setState({ value_date: event.target.value });
@@ -211,7 +211,7 @@ class App extends Component {
   render() {
     // console.log(Rotation());
     return (
-      <div>
+      <div className="App">
         <div className="time">
           <Time />
         </div>
@@ -241,29 +241,23 @@ class App extends Component {
           }
         </div>
         <div>
-          <h2>分配及打扫</h2>
-          <ul>
-            <li>组长负责任务分配，以及讲卫生标准</li>
-            <li>二、三、四，楼打扫卫生需打扫至下层楼梯</li>
-            <li>一楼需打扫院子</li>
-            <li>组长负责检查本楼层卫生（检查完成后可以让卫生监督员再次检查）</li>
-          </ul>
-          <br />
-          <h2>惩罚（2021.9.28生效）</h2>
-          <p>一周内出现两次及两次以上不合格，将按照惩罚标准惩罚该小组</p>
-          <ul>
-            <li>卫生不合格应扣小组（蚪币30蚪 \ 人民币）</li>
-            <li>（初次30蚪 \ 人民币）多次不合格依次翻倍</li>
-          </ul>
-          <br />
-          <h2>卫生打扫标准如下列表</h2>
-          <ul>
-            <li>公共物品各归其位</li>
-            <li>可见台面无灰尘</li>
-            <li>地面垃圾桶无脚印</li>
-            <li>倾倒垃圾桶内垃圾</li>
-          </ul>
-
+          <div className="card_j">
+            <Card
+              title={date.card.name}
+              p={date.card.p}
+              arr={date.card.arr}
+            />
+            <Card
+              title={date.card_2.name}
+              p={date.card_2.p}
+              arr={date.card_2.arr}
+            />
+            <Card
+              title={date.card_3.name}
+              p={date.card_3.p}
+              arr={date.card_3.arr}
+            />
+          </div>
           <h3>
             点击对应楼层查看该区域标准
           </h3>

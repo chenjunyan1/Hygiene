@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -129,6 +128,20 @@ input:focus{
   /* overflow:scroll; */
   /* width: 1700px; */
 }
+
+.card_j{
+  display: grid;
+  grid-template-columns: repeat(3,33.33%);
+  justify-content: center;
+  justify-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .card_j{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+  }
+}
 @media screen and (max-width: 1712px) {
   .from_qingjie{
     display: grid;
@@ -139,6 +152,10 @@ input:focus{
   .from_qingjie{
     display: grid;
     grid-template-columns: 100%;
+  }
+  .card_j{
+    display: grid;
+    grid-template-columns: repeat(1,100%);
   }
 }
 table{
@@ -222,74 +239,4 @@ th{
 .all_tijiao>input:nth-child(2){
   /* border-right: none; */
 
-}
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 18px;
-  position: relative;
-}
-
-input[type="checkbox"]::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #fff;
-  width: 100%;
-  height: 100%;
-  border: 1px solid #d9d9d9
-}
-
-input[type="checkbox"]:checked::before {
-  content: "\2713";
-  background-color: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  border: 1px solid #e50232;
-  color: #e50232;
-  font-size: 20px;
-  font-weight: bold;
-}
-@media screen and (max-width: 400px) {
-
-.help{
-  overflow-y: auto;
-  width: 300px;
-}
-
-}
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
