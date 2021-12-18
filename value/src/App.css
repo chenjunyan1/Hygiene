@@ -268,10 +268,10 @@ th{
     border: 2px solid #c4c7ce;
     background: #fff;
     color: #222;
+    border-right: none;
 }
 .all_tijiao>input:nth-child(2){
   border-radius: 0px;
-  border-left: none;
 }
 .all_tijiao>button{
   height: 46px;
