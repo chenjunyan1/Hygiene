@@ -20,20 +20,24 @@
 }
 h3{
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
 }
 a{
   text-decoration:none;
   color:red;
 }
-
+.layer{
+  display: grid;
+  grid-template-columns:repeat(3,33.33%);
+  border-bottom: 1px solid #a6e3e9;
+}
 .layer>div>input{
   margin-left: 20px;
   width: 30px;
   height: 30px;
 }
 .layer>div{
-  font-size: 17px;
+  font-size: 10px;
   display: flex;
   word-break: keep-all;
   flex-wrap: wrap;
@@ -98,13 +102,13 @@ a{
 }
 input:focus{
   outline: none;
-  border-color: #4e6ef2!important;
+  border-color: #21eee0!important;
 }
 
 .Input_chazhao>input:nth-child(2){
   height: 46px;
   width: 20%;
-  background-color: #4e6ef2;
+  background-color: black;
   border-radius: 0 10px 10px 0;
   font-size: 17px;
   color: #fff;
@@ -121,45 +125,69 @@ input:focus{
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
+  transition: all 2s linear;
+}
+#new{
+  background: brown;
 }
 .from_qingjie{
   width: 100%;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  /* grid-template-columns: 25% 25% 25% 25%; */
+  grid-template-columns: 100%;
+
   /* overflow: auto; */
   /* overflow:scroll; */
   /* width: 1700px; */
 }
 
 .card_j{
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 60px;
+  margin-bottom: 60px;
   display: grid;
   grid-template-columns: repeat(3,33.33%);
   justify-content: center;
   justify-items: center;
 }
-
+.lunhuan{
+  display: grid;
+  grid-template-columns: repeat(4,25%);
+}
 @media screen and (max-width: 1200px) {
+  .lunhuan{
+    display: grid;
+    grid-template-columns: repeat(3,33.33%);
+  }
   .card_j{
     display: grid;
     grid-template-columns: repeat(2,50%);
   }
 }
 @media screen and (max-width: 1712px) {
-  .from_qingjie{
-    display: grid;
-    grid-template-columns: 50% 50%;
-  }
+ 
 }
 @media screen and (max-width: 800px) {
-  .from_qingjie{
+  .lunhuan{
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: repeat(2,50%);
+  }
+  .layer{
+    display: grid;
+    grid-template-columns:repeat(2,50%);
   }
   .card_j{
     display: grid;
     grid-template-columns: repeat(1,100%);
+  }
+}
+@media screen and (max-width: 600px) {
+  .lunhuan{
+    display: grid;
+    grid-template-columns: repeat(1,100%);
+  }
+  .layer{
+    display: grid;
+    grid-template-columns:repeat(1,100%);
   }
 }
 table{
@@ -181,6 +209,7 @@ th{
 }
 
 .floor{
+  
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -200,7 +229,7 @@ th{
   cursor: pointer;
 }
 .floor>*:hover{
-  background: #c9d6df;
+  background: #ffde7d;
 }
 
 .redAndGreen{
@@ -226,24 +255,31 @@ th{
 }
 .all_tijiao{
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 40px;
 }
 .all_tijiao>input{
     height: 40px;
     text-align: center;
     width: 30%;
     box-shadow: none;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 0px 0px 10px;
     border: 2px solid #c4c7ce;
     background: #fff;
     color: #222;
 }
+.all_tijiao>input:nth-child(2){
+  border-radius: 0px;
+  border-left: none;
+}
 .all_tijiao>button{
   height: 46px;
   width: 20%;
-  background-color: #4e6ef2;
-  border-radius: 0 10px 10px 0;
+  background-color: cadetblue;
+  border-radius: 0px 10px 10px 0px;
   font-size: 17px;
-  color: #fff;
+  color: mistyrose;
   box-shadow: none;
   font-weight: 400;
   border: none;

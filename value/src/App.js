@@ -73,7 +73,8 @@ class App extends Component {
       one: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       two: [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
       three: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-      four: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+      four: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+      iscolor: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -91,10 +92,17 @@ class App extends Component {
     if (deta.indexOf(this.state.value) != -1) {
       // console.log("在本页面开始寻找ID:" + this.state.value);
       // console.log("正在查找");
+      // for (let a = 0; a < date.length; a++) {
+      //   document.getElementById(date[a]).style.backgroundColor = "white";
+      // }
       let anchorElement = document.getElementById(this.state.value);
       if (anchorElement) {
         // console.log("正在前往");
         anchorElement.scrollIntoView({ behavior: "smooth", });
+        anchorElement.style.backgroundColor = "blueviolet";
+        setTimeout(() => {
+          anchorElement.style.backgroundColor = "#dff4f3";
+        }, 5000);
       } else {
         // console.log("没找到");
       }
@@ -266,10 +274,10 @@ class App extends Component {
             <div>历史检查数据：<a href="https://inspection-record.vercel.app/">https://inspection-record.vercel.app</a></div>
           </div>
           <div className="floor">
-            <div onClick={this.lookup.bind(this, 1)}>一楼</div>
-            <div onClick={this.lookup.bind(this, 2)}>二楼</div>
-            <div onClick={this.lookup.bind(this, 3)}>三楼</div>
-            <div onClick={this.lookup.bind(this, 4)}>四楼</div>
+            <div onClick={this.lookup.bind(this, 1)}>1F</div>
+            <div onClick={this.lookup.bind(this, 2)}>2F</div>
+            <div onClick={this.lookup.bind(this, 3)}>3F</div>
+            <div onClick={this.lookup.bind(this, 4)}>4F</div>
             <div onClick={this.lookup.bind(this, "all")}>ALL</div>
           </div>
           {(this.state.num != "null") ? (
@@ -285,13 +293,14 @@ class App extends Component {
                 <div>为不合格</div>
               </div>
             </div>
+            // <label for="id"></label>
           ) : null
           }
 
           <div className="from_qingjie">
             {(this.state.num == 1 || this.state.num == "all") ? (
               <div className="layer">
-                <h3>一楼</h3>
+                <h3>1F</h3>
                 {
                   date.str_1.map((item, index) => {
                     console.log("显示")
@@ -310,7 +319,7 @@ class App extends Component {
             }
             {(this.state.num == 2 || this.state.num == "all") ? (
               <div className="layer">
-                <h3>二楼</h3>
+                <h3>2F</h3>
                 {
                   date.str_2.map((item, index) => {
                     return (
@@ -328,7 +337,7 @@ class App extends Component {
             }
             {(this.state.num == 3 || this.state.num == "all") ? (
               <div className="layer">
-                <h3>三楼</h3>
+                <h3>3F</h3>
                 {
                   date.str_3.map((item, index) => {
                     return (
@@ -346,7 +355,7 @@ class App extends Component {
             }
             {(this.state.num == 4 || this.state.num == "all") ? (
               <div className="layer">
-                <h3>四楼</h3>
+                <h3>4F</h3>
                 {
                   date.str_4.map((item, index) => {
                     return (
@@ -368,6 +377,7 @@ class App extends Component {
           {this.state.num == "all" ? (
             <div className="all_tijiao">
               <input
+                type="password"
                 placeholder="请输入提交密码"
                 value={this.state.value_word}
                 onChange={this.handleChange_word.bind(this)}
@@ -380,7 +390,7 @@ class App extends Component {
               <button
                 onClick={this.handclick_word.bind(this)}
               >
-                提交
+                Submit
               </button>
             </div>
           ) : null
@@ -448,11 +458,14 @@ class App extends Component {
           <br /><br />
           <h4>JavaScript ObjArr轮换算法 - Wonderland</h4>
         </div>
-        <div>
+        <div className="lunhuan">
           {
             Object.keys(roundArr).map((value, index) => {
               return (
-                <div key={index} className="lun" id={deta[index]}>
+                <div
+                  key={index}
+                  className={'lun'}
+                  id={deta[index]}>
                   <div>
                     {"第" + (index + 1) + "周 ： Date : " + deta[index]}
                   </div>

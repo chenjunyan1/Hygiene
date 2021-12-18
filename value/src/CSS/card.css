@@ -3,14 +3,14 @@
     height: 135px;
     padding: 10px;
     background: linear-gradient(to right, rgb(198, 255, 221), rgb(251, 215, 134), rgb(247, 121, 125));
-    border-radius: 30px;
+    border-radius: 30px 5px;
     margin: 20px;
     box-shadow: 0 5px 15px rgb(0 0 0 / 5%);
 }
 .card>div:first-child{
     display: flex;
-    justify-content: center;
-    color: brown;
+    justify-content:end;
+    color: teal;
     font-size: 18px;
     font-weight: 500;
 }
