@@ -293,7 +293,6 @@ class App extends Component {
                 <div>为不合格</div>
               </div>
             </div>
-            // <label for="id"></label>
           ) : null
           }
 

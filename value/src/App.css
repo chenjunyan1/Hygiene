@@ -125,6 +125,7 @@ input:focus{
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
+  align-items: center;
   transition: all 2s linear;
 }
 #new{
