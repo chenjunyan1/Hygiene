@@ -226,9 +226,14 @@ class App extends Component {
         <div className="xiangshang" onClick={this.handclick.bind(this)}>
           <img src="shang_home.svg" />
         </div>
-        <h3 id="zhiri">
-          实务学堂2021秋季学期卫生值日
-        </h3>
+        <div className="zhiri_one">
+          <img src="logo.png" />
+          <h3 id="zhiri">
+            实务学堂卫生值日系统 - Chen Jun Yan
+          </h3>
+          <img src="jiantou.svg"/>
+        </div>
+
         <div className="list">
           {
             Object.keys(date.nameList).map((value, index) => {
@@ -264,7 +269,7 @@ class App extends Component {
               title={date.card_3.name}
               p={date.card_3.p}
               arr={date.card_3.arr}
-            />
+            /> 
           </div>
           <h3>
             点击对应楼层查看该区域标准
@@ -273,6 +278,7 @@ class App extends Component {
           <div>
             <div>历史检查数据：<a href="https://inspection-record.vercel.app/">https://inspection-record.vercel.app</a></div>
           </div>
+
           <div className="floor">
             <div onClick={this.lookup.bind(this, 1)}>1F</div>
             <div onClick={this.lookup.bind(this, 2)}>2F</div>

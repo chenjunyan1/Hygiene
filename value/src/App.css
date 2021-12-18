@@ -1,6 +1,25 @@
 .App {
 }
-
+.zhiri_one{
+  height: 100vh;
+  background-image: url(./junyan.jpg);
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.zhiri_one>img{
+  width: 100px;
+}
+#zhiri{
+  font-size: 30px;
+  text-align: center;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -18,10 +37,7 @@
   width: 50px;
   height: 50px;
 }
-h3{
-  text-align: center;
-  font-size: 12px;
-}
+
 a{
   text-decoration:none;
   color:red;
