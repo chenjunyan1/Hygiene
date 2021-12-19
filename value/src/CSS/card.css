@@ -7,6 +7,16 @@
     margin: 20px;
     box-shadow: 0 5px 15px rgb(0 0 0 / 5%);
 }
+.into{
+    width: 80px;
+    height: 40px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .card>div:first-child{
     display: flex;
     justify-content:end;
@@ -16,4 +26,16 @@
 }
 .card>div:nth-child(2){
     color: crimson;
+}
+@media screen and (max-width: 300px){
+    .card{
+        width: 200px;
+        margin: 5px;
+    }
+}
+@media screen and (max-width: 220px){
+    .card{
+        width: 100%;
+        border-radius: 0px;
+    }
 }

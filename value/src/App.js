@@ -231,7 +231,11 @@ class App extends Component {
           <h3 id="zhiri">
             实务学堂卫生值日系统 - Chen Jun Yan
           </h3>
-          <img src="jiantou.svg"/>
+          <div className="into">
+            <div onClick={this.handclick.bind(this)}>
+              Get into
+            </div>
+          </div>
         </div>
 
         <div className="list">
@@ -269,13 +273,13 @@ class App extends Component {
               title={date.card_3.name}
               p={date.card_3.p}
               arr={date.card_3.arr}
-            /> 
+            />
           </div>
           <h3>
             点击对应楼层查看该区域标准
           </h3>
 
-          <div>
+          <div className="history">
             <div>历史检查数据：<a href="https://inspection-record.vercel.app/">https://inspection-record.vercel.app</a></div>
           </div>
 
@@ -379,31 +383,38 @@ class App extends Component {
           </div>
 
           {/* 提交列表 */}
+
           {this.state.num == "all" ? (
             <div className="all_tijiao">
-              <input
-                type="password"
-                placeholder="请输入提交密码"
-                value={this.state.value_word}
-                onChange={this.handleChange_word.bind(this)}
-              />
-              <input
-                placeholder="九月十四日 输入格式： 9-14"
-                value={this.state.value_date}
-                onChange={this.handleChange_date.bind(this)}
-              />
-              <button
-                onClick={this.handclick_word.bind(this)}
-              >
-                Submit
-              </button>
+              <div>
+                <div>输入框1为管理员密码</div>
+                <div>输入框2为本周二的日期，如如九月十四日 应输入：9-14</div>
+              </div>
+              <div>
+                <input
+                  type="password"
+                  placeholder="密码"
+                  value={this.state.value_word}
+                  onChange={this.handleChange_word.bind(this)}
+                />
+                <input
+                  placeholder="日期"
+                  value={this.state.value_date}
+                  onChange={this.handleChange_date.bind(this)}
+                />
+                <button
+                  onClick={this.handclick_word.bind(this)}
+                >
+                  提交
+                </button>
+              </div>
             </div>
           ) : null
           }
 
           {/* 帮助 */}
           <br />
-          <h2>Help</h2>
+          <div className="help_d">Help</div>
           <ul className="help">
             <li>
               <div>
@@ -420,7 +431,7 @@ class App extends Component {
             <li>
               <div>
                 Github开源本页项目一切文件：
-                <a href="https://github.com/chenjunyan1/name">https://github.com/chenjunyan1/name</a>
+                <a href="https://github.com/chenjunyan1/InspectionRecord/blob/main/my-app/README.md?plain=1">https://github.com/chenjunyan1/InspectionRecord/blob/main/my-app/README.md?plain=1</a>
               </div>
             </li>
             <li>
@@ -454,7 +465,7 @@ class App extends Component {
                 placeholder="九月十四日 输入格式： 9-14" />
               <input className="tijiao"
                 type="submit"
-                value="Lookup"
+                value="Go"
               />
             </div>
           </form>

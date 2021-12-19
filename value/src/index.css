@@ -8,6 +8,11 @@ body {
   font-size: 10px;
   background-color: #dff4f3;
 }
+@media screen and (max-width: 400px){
+  body{
+    font-size: 8px;
+  }
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

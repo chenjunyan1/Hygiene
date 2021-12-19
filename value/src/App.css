@@ -40,7 +40,7 @@
 
 a{
   text-decoration:none;
-  color:red;
+  color:cornsilk;
 }
 .layer{
   display: grid;
@@ -57,6 +57,11 @@ a{
   display: flex;
   word-break: keep-all;
   flex-wrap: wrap;
+  margin-bottom: 3px;
+}
+.layer>h3:first-child{
+  display: flex;
+  justify-content: center;
 }
 .member{
   width: 100%;
@@ -124,7 +129,7 @@ input:focus{
 .Input_chazhao>input:nth-child(2){
   height: 46px;
   width: 20%;
-  background-color: black;
+  background-color: #5f9ea0;
   border-radius: 0 10px 10px 0;
   font-size: 17px;
   color: #fff;
@@ -144,6 +149,16 @@ input:focus{
   align-items: center;
   transition: all 2s linear;
 }
+.history{
+  color: blanchedalmond;
+  background: #ff2e63;
+  width: 40%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 40px 0px 0px;
+}
 #new{
   background: brown;
 }
@@ -157,7 +172,18 @@ input:focus{
   /* overflow:scroll; */
   /* width: 1700px; */
 }
-
+.help{
+  background: darkseagreen;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0px;
+  overflow: scroll;
+}
+.help_d{
+  font-size: 20px;
+  background: coral;
+  color: aliceblue;
+}
 .card_j{
   margin-top: 60px;
   margin-bottom: 60px;
@@ -226,7 +252,6 @@ th{
 }
 
 .floor{
-  
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -244,6 +269,7 @@ th{
   text-align: center;
   /* width: 300px; */
   cursor: pointer;
+  margin: 10px;
 }
 .floor>*:hover{
   background: #ffde7d;
@@ -272,11 +298,20 @@ th{
 }
 .all_tijiao{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin-top: 40px;
 }
-.all_tijiao>input{
+.all_tijiao>div:first-child{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.all_tijiao>div:nth-child(2){
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.all_tijiao>div>input{
     height: 40px;
     text-align: center;
     width: 30%;
@@ -287,10 +322,10 @@ th{
     color: #222;
     border-right: none;
 }
-.all_tijiao>input:nth-child(2){
+.all_tijiao>div>input:nth-child(2){
   border-radius: 0px;
 }
-.all_tijiao>button{
+.all_tijiao>div>button{
   height: 46px;
   width: 20%;
   background-color: cadetblue;
@@ -300,9 +335,5 @@ th{
   box-shadow: none;
   font-weight: 400;
   border: none;
-
 }
-.all_tijiao>input:nth-child(2){
-  /* border-right: none; */
 
-}
