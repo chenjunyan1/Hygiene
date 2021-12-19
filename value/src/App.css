@@ -177,7 +177,6 @@ input:focus{
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0px;
-  overflow: scroll;
 }
 .help_d{
   font-size: 20px;
@@ -221,6 +220,9 @@ input:focus{
   .card_j{
     display: grid;
     grid-template-columns: repeat(1,100%);
+  }
+  .help{
+    overflow: scroll;
   }
 }
 @media screen and (max-width: 600px) {
