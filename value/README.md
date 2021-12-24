@@ -1,70 +1,44 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 实务学堂卫生检查系统
++ 本人是实务学堂卫生检查员，为方便查看为实务学堂定制了一套系统，使用了React框架进行开发
++ 检查页面为：https://name-chenjunyan1.vercel.app
++ 数据分析页面为：https://inspection-record.vercel.app
+## 与日常结合，万物归一至web，内容全面
+  + 名单
+    1. 小组人名单：放入json内，轻松修改即内容
+    2. 分为四个小组有组长和副组长和组员
+    3. 颜色丰富：但是本人不太会颜色搭配
+  + 提示
+    1. 分配及打扫
+    2. 惩罚
+    3. 打扫标准
+  + 细化楼层标准
+    1. 1F~4F 的各个区域的标准
+    2. 可单独查看各个楼层的标准和所有楼层的标准（如我想查看一楼，就只会显示一楼的卫生检查标准）
+  + 提交表单功能
+    1. react强大的状态管理，将每个细节的区域都配有他自己的状态
+    2. 查看楼层区域时也可以进行检查，选择框内颜色为青蓝色时为合格，为红色时为不合格（点击会编程红色）。
+    3. 输入提交密码和本周二的时间方可提交
+    4. 提交后可在数据分析页面查看提价数据：https://inspection-record.vercel.app
+  + help及支持
+    1. 收集改进及卫生检查反馈：邮箱等
+    2. 将项目进行开源
+    3. 本地部署，安全，内部快速查看，
+    4. 云部署：所有人查看
+  + 搜索本周人员分布
+    1. 输入本周二的日期，如九月十四日 应输入：9-14 可快速查看本周各个楼层的值日表
+    2. 为公平起见，每个小组每周值日的楼层会有轮换
+  + 楼层人员轮换算法
+    1. 为保持每个小组每周打扫不同的楼层等，用了轮换算法
+    2. 原理和冒泡、插入排序算法的基础原理相似，如：本周一组打扫四楼，那么下一周就打扫三楼
+    3. 和名单一样，内容（人名）从json取出，方便修改。
+    4. JavaScript ObjArr的小组换算法
+## 提交表单与数据分析
+https://inspection-record.vercel.app
+  + 直观查看各个小组每日值日情况
+  + 利用提交时本周二时间的数据判断该小组值日几楼
+  + 利用提交时几点合格和不合格true|flase的复选框判断哪里不合格
+  - 数据可视化
+    1. 哪个小组值日本周不合格次数超过两次
+    2. 哪个区域不合格次数最多
+    3. 哪个小组本月打扫优秀
+    4. ....
