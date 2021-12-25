@@ -2,7 +2,7 @@
 + 本人是实务学堂卫生检查员，为方便查看为实务学堂定制了一套系统，使用了React框架进行开发
 + 检查页面为：https://name-chenjunyan1.vercel.app
 + 数据分析页面为：https://inspection-record.vercel.app
-## 与日常结合，万物归一至web，内容全面
+## 与日常结合，万物归一，内容全面For_web
   + 名单
     1. 小组人名单：放入json内，轻松修改即内容
     2. 分为四个小组有组长和副组长和组员
