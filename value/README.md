@@ -33,7 +33,7 @@
     3. 和名单一样，内容（人名）从json取出，方便修改。
     4. JavaScript ObjArr的小组换算法
 ## 提交表单与数据分析
-https://inspection-record.vercel.app
+* https://inspection-record.vercel.app
   + 直观查看各个小组每日值日情况
   + 利用提交时本周二时间的数据判断该小组值日几楼
   + 利用提交时几点合格和不合格true|flase的复选框判断哪里不合格
